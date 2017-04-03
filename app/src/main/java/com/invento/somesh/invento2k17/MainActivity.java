@@ -43,36 +43,25 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 mDrawerLayout.closeDrawers();
 
-
                 if (menuItem.getItemId() == R.id.nav_item_Events) {
                     FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
                     xfragmentTransaction.replace(R.id.containerView,new TabFragment()).commit();
                 }
-
                 if (menuItem.getItemId() == R.id.nav_item_sch) {
                     FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
                     fragmentTransaction.replace(R.id.containerView,new SentFragment()).commit();
-
                 }
-
                 if (menuItem.getItemId() == R.id.nav_spo) {
                     startActivity(new Intent(getApplication(), Sponsor.class));
-
                 }
-
-
                 if (menuItem.getItemId() == R.id.nav_logout){
                     firebaseAuth.signOut();
                     finish();
                     startActivity(new Intent(MainActivity.this, Loginactivity.class));
                 }
-
                 return false;
             }
-
         });
-
-
 
         android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
         ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this,mDrawerLayout, toolbar,R.string.app_name,
